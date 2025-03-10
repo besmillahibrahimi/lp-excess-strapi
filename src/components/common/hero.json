@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_common_heroes",
+  "info": {
+    "displayName": "Hero",
+    "icon": "picture",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "notice": {
+      "type": "string",
+      "default": "Offer varies by state. Must qualify."
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "background": {
+      "type": "string"
+    },
+    "platform": {
+      "type": "component",
+      "repeatable": true,
+      "component": "fields.platform"
+    }
+  }
+}

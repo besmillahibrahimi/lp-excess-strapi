@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_fields_platforms",
+  "info": {
+    "displayName": "Platform",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "enumeration",
+      "enum": [
+        "transient",
+        "wic1w",
+        "ssi1w",
+        "medicaid1w",
+        "medical1w",
+        "calfresh1w",
+        "snap1w",
+        "ebt1w",
+        "california",
+        "main",
+        "main1w",
+        "byop1w",
+        "sim1w",
+        "tribal",
+        "getlifeline",
+        "gov1w",
+        "excstep",
+        "excstp",
+        "hispanic1w",
+        "infinitiex"
+      ],
+      "required": true,
+      "default": "main"
+    }
+  }
+}

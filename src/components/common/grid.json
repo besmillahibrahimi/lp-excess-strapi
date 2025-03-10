@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_common_grids",
+  "info": {
+    "displayName": "Grid",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "rows": {
+      "type": "integer",
+      "max": 100
+    },
+    "gaps": {
+      "type": "integer"
+    },
+    "gapsX": {
+      "type": "integer",
+      "max": 20
+    },
+    "gapsY": {
+      "type": "integer",
+      "max": 20
+    },
+    "children": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.content",
+      "required": true
+    },
+    "mobileColumns": {
+      "type": "integer",
+      "max": 50
+    },
+    "tabletColumns": {
+      "type": "integer",
+      "max": 50
+    },
+    "desktopColumns": {
+      "type": "integer",
+      "max": 50
+    },
+    "platform": {
+      "type": "component",
+      "repeatable": false,
+      "component": "fields.platform"
+    }
+  }
+}
