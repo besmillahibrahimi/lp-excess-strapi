@@ -1,61 +1,101 @@
-# 🚀 Getting started with Strapi
+# Strapi Setup Guide
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+This guide walks you through the steps required to set up and run a Strapi project using `pnpm` as the package manager.
 
-### `develop`
+## Prerequisites
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+Ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (Recommended: Latest LTS version)
+- [pnpm](https://pnpm.io/installation)
 
-```
-npm run develop
-# or
-yarn develop
-```
+## Installation & Setup
 
-### `start`
+### 1. Clone the project
+Run the following command to clone a the Strapi project:
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
-
-```
-npm run start
-# or
-yarn start
+```sh
+git clone https://github.com/csoftz/lp-excess-strapi
 ```
 
-### `build`
+This will clone the Strapi project with SQLite as the default database.
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
+### 2. Navigate to the Project Directory
 
-```
-npm run build
-# or
-yarn build
+```sh
+cd lp-excess-strapi
 ```
 
-## ⚙️ Deployment
+### 3. Install Dependencies
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+Run the following command to install all project dependencies:
+
+```sh
+pnpm install
+```
+
+### 4. Configure Database (Optional)
+
+If you prefer a database like PostgreSQL, MySQL, or MongoDB, update the `config/database.js` file accordingly. Example for PostgreSQL:
+
+```js
+module.exports = ({ env }) => ({
+  connection: {
+    client: 'postgres',
+    connection: {
+      host: env('DATABASE_HOST', '127.0.0.1'),
+      port: env('DATABASE_PORT', 5432),
+      database: env('DATABASE_NAME', 'strapi'),
+      user: env('DATABASE_USERNAME', 'strapi'),
+      password: env('DATABASE_PASSWORD', 'strapi'),
+      ssl: env.bool('DATABASE_SSL', false),
+    },
+  },
+});
+```
+
+Create a `.env` file and define database environment variables:
+
+```env
+DATABASE_HOST=127.0.0.1
+DATABASE_PORT=5432
+DATABASE_NAME=strapi
+DATABASE_USERNAME=strapi
+DATABASE_PASSWORD=strapi
+DATABASE_SSL=false
+```
+
+### 5. Start Strapi Development Server
+
+Run the following command to start the Strapi server in development mode:
+
+```sh
+pnpm develop
+```
+
+This will start the Strapi admin panel, typically accessible at:
 
 ```
-yarn strapi deploy
+http://localhost:1337/admin
 ```
 
-## 📚 Learn more
+### 6. Build & Run in Production Mode
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+For production usage, build the admin panel and start the server:
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
+```sh
+pnpm build
+pnpm start
+```
 
-## ✨ Community
+## Additional Commands
 
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+- **Generate API**: `pnpm strapi generate:api article`
+- **Generate Controller**: `pnpm strapi generate:controller article`
+- **Generate Service**: `pnpm strapi generate:service article`
+- **Run Strapi Console**: `pnpm strapi console`
 
----
+## Conclusion
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+You have now successfully set up and run Strapi with `pnpm`. You can customize it further by creating content types, APIs, and extending its functionality according to your project requirements.
+
+For more details, refer to the [official Strapi documentation](https://docs.strapi.io/).
