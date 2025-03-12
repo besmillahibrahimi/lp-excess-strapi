@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_common_faqs",
+  "info": {
+    "displayName": "FAQ",
+    "icon": "check",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "response": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

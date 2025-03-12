@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_landing_benefits",
+  "info": {
+    "displayName": "Benefits",
+    "icon": "gift"
+  },
+  "options": {},
+  "attributes": {
+    "headline": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.content"
+    },
+    "illustration": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "offerDetails": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_common_fa_qs",
+  "info": {
+    "displayName": "FAQs",
+    "icon": "layer"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "faqs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.faq"
+    }
+  }
+}

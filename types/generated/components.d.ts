@@ -39,6 +39,49 @@ export interface CommonContent extends Struct.ComponentSchema {
   };
 }
 
+export interface CommonFaQs extends Struct.ComponentSchema {
+  collectionName: 'components_common_fa_qs';
+  info: {
+    displayName: 'FAQs';
+    icon: 'layer';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    faqs: Schema.Attribute.Component<'common.faq', true>;
+  };
+}
+
+export interface CommonFaq extends Struct.ComponentSchema {
+  collectionName: 'components_common_faqs';
+  info: {
+    description: '';
+    displayName: 'FAQ';
+    icon: 'check';
+  };
+  attributes: {
+    question: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    response: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface CommonGrid extends Struct.ComponentSchema {
   collectionName: 'components_common_grids';
   info: {
@@ -155,13 +198,88 @@ export interface FieldsPlatform extends Struct.ComponentSchema {
   };
 }
 
+export interface LandingBenefits extends Struct.ComponentSchema {
+  collectionName: 'components_landing_benefits';
+  info: {
+    displayName: 'Benefits';
+    icon: 'gift';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'common.content', true>;
+    headline: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    illustration: Schema.Attribute.Media<'images' | 'files'>;
+    offerDetails: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
+export interface LandingPerks extends Struct.ComponentSchema {
+  collectionName: 'components_landing_perks';
+  info: {
+    displayName: 'Perks';
+    icon: 'magic';
+  };
+  attributes: {
+    discountGiveways: Schema.Attribute.Component<'common.grid', false>;
+    headline: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    partners: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+  };
+}
+
+export interface LandingQualify extends Struct.ComponentSchema {
+  collectionName: 'components_landing_qualifies';
+  info: {
+    description: '';
+    displayName: 'Qualify';
+    icon: 'seed';
+  };
+  attributes: {
+    background: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    headline: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    programs: Schema.Attribute.Media<'images' | 'files', true>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'common.content': CommonContent;
+      'common.fa-qs': CommonFaQs;
+      'common.faq': CommonFaq;
       'common.grid': CommonGrid;
       'common.hero': CommonHero;
       'fields.platform': FieldsPlatform;
+      'landing.benefits': LandingBenefits;
+      'landing.perks': LandingPerks;
+      'landing.qualify': LandingQualify;
     }
   }
 }

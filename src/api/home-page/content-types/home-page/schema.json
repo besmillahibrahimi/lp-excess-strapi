@@ -21,7 +21,11 @@
       "components": [
         "common.hero",
         "common.grid",
-        "common.content"
+        "common.content",
+        "landing.benefits",
+        "landing.qualify",
+        "landing.perks",
+        "common.fa-qs"
       ],
       "pluginOptions": {
         "i18n": {

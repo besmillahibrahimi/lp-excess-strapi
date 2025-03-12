@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_landing_perks",
+  "info": {
+    "displayName": "Perks",
+    "icon": "magic"
+  },
+  "options": {},
+  "attributes": {
+    "headline": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "partners": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "discountGiveways": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.grid"
+    }
+  }
+}

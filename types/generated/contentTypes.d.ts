@@ -390,7 +390,15 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     layouts: Schema.Attribute.DynamicZone<
-      ['common.hero', 'common.grid', 'common.content']
+      [
+        'common.hero',
+        'common.grid',
+        'common.content',
+        'landing.benefits',
+        'landing.qualify',
+        'landing.perks',
+        'common.fa-qs',
+      ]
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
